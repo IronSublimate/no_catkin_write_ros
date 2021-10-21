@@ -42,11 +42,11 @@ target_link_libraries(listener ${catkin_LIBRARIES})
     ```shell
     CMAKE_PREFIX_PATH=/opt/ros/noetic
     ```
-![](README/1.png)
+   ![](README/1.png)
 3. 执行cmake，编译
 4. 右上角Edit Configuration，对可执行程序（listener和talker）增加LD_LIBRARY_PATH环环境变量
     ```shell
     LD_LIBRARY_PATH=/opt/ros/noetic/lib
     ```
-![](README/2.png)
+   ![](README/2.png)
 5. 开roscore，运行
