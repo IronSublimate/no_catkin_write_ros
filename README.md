@@ -40,13 +40,13 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 1. （远程）终端输入env，查看CMAKE_PREFIX_PATH和LD_LIBRARY_PATH环境变量
 2. File -> Settings -> Build, Execution, Deployment -> CMake，将CMAKE_PREFIX_PATH加到Environment中
 ```shell
-CMAKE_PREFIX_PATH=/mnt/e/code/ros_learn_ws/devel:/opt/ros/noetic
+CMAKE_PREFIX_PATH=/opt/ros/noetic
 ```
 ![](README/1.png)
 3. 执行cmake，编译
 4. 右上角Edit Configuration，对可执行程序（listener和talker）增加LD_LIBRARY_PATH环环境变量
 ```shell
-LD_LIBRARY_PATH=/mnt/e/code/ros_learn_ws/devel/lib:/opt/ros/noetic/lib
+LD_LIBRARY_PATH=/opt/ros/noetic/lib
 ```
 ![](README/2.png)
 5. 开roscore，运行
