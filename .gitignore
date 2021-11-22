@@ -1,2 +1,7 @@
 .idea
 cmake-build*
+src/CMakeLists.txt
+/devel
+/build
+/install
+/.catkin_tools
