@@ -96,7 +96,7 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 
 4. 右上角Edit Configuration，对可执行程序（listener和talker）增加LD_LIBRARY_PATH环环境变量
     ```shell
-    LD_LIBRARY_PATH=devel/lib:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH;
+    LD_LIBRARY_PATH=devel/lib:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/usr/local/lib:$LD_LIBRARY_PATH;
     PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:/usr/lib/python3/dist-packages;
    ROS_PACKAGE_PATH=./src:/opt/ros/noetic/share;
    PATH=/opt/ros/noetic/bin:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:$PATH;
