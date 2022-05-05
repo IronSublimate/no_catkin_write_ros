@@ -11,7 +11,7 @@
 直接用g++编译同理
 以[官网教程:Writing a Simple Publisher and Subscriber (C++)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)为例
 
-## 新建工作空间(可选)
+## 新建工作空间(可选,同官网教程一样)
 
 如果想按照ros的工作空间格式建项目，可以按照这个步骤
 
@@ -25,7 +25,7 @@ cd beginner_tutorials
 
 
 
-## 新建/修改CMakeLists.txt
+## 新建/修改CMakeLists.txt（同官网教程一样）
 
 ```cmake
 cmake_minimum_required(VERSION 2.8.3)
@@ -51,18 +51,7 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 同教程一样，注意talker.cpp和listener.cpp的相对于CMakeLists.txt的路径和上面CMakeLists.txt中的一样
 
 ## clion设置
-1. 查看catkin相关的环境变量
-
-    ```bash
-    catkin_make
-    source devel/setup.zsh
-    ```
-
-    （远程）终端输入env，查看CMAKE_PREFIX_PATH和LD_LIBRARY_PATH环境变量
-
-    
-
-2. 工作空间打开clion，选择src下面的CMakeLists.txt
+1. 工作空间打开clion，选择src下面的CMakeLists.txt，也就是链接到ros安装目录的CMakeLists.txt
     
 2. File -> Settings -> Build, Execution, Deployment -> CMake，
     
@@ -72,34 +61,40 @@ target_link_libraries(listener ${catkin_LIBRARIES})
    -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=../install -DCATKIN_DEVEL_PREFIX=../devel
    ```
    
-   添加Environment，注意是python3还是python2
+   修改env.sh中ros的路径，运行env.sh，将输出添加Environment，注意是python3还是python2
    
    ```shell
-   PKG_CONFIG_PATH=/opt/ros/noetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig;
-   PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages\;/usr/lib/python3/dist-packages;
-   CMAKE_PREFIX_PATH=/opt/ros/noetic;
-   ROS_PACKAGE_PATH=/opt/ros/noetic/share:./src
-   LD_LIBRARY_PATH=/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu;
-   PATH=/opt/ros/noetic/bin:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin;
-   ROS_DISTRO=noetic;
-   ROS_ETC_DIR=/opt/ros/noetic/etc/ros;
-   ROS_PYTHON_VERSION=3;
    ROS_VERSION=1;
-   ROS_ROOT=/opt/ros/noetic/share/ros;
+   PKG_CONFIG_PATH=/opt/ros/noetic/lib/pkgconfig;
+   ROS_PYTHON_VERSION=3;ROS_PACKAGE_PATH=/opt/ros/noetic/share;
+   ROSLISP_PACKAGE_DIRECTORIES=;
+   ROS_ETC_DIR=/opt/ros/noetic/etc/ros;
+   CMAKE_PREFIX_PATH=/opt/ros/noetic;
+   PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages;
    ROS_MASTER_URI=http://localhost:11311;
-   ROSLISP_PACKAGE_DIRECTORIES=./devel/share/common-lisp;
-   
+   LD_LIBRARY_PATH=/opt/ros/noetic/lib;
+   PATH=/opt/ros/noetic/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin;
+   ROS_ROOT=/opt/ros/noetic/share/ros;
+   ROS_DISTRO=noetic;
    ```
    ![](README/1.png)
    
-4. 执行cmake，编译
+3. 执行cmake，编译
 
-4. 右上角Edit Configuration，对可执行程序（listener和talker）增加LD_LIBRARY_PATH环环境变量
+4. 右上角Edit Configuration，对可执行程序（listener和talker）增加env.sh的输出的环境变量，
     ```shell
-    LD_LIBRARY_PATH=devel/lib:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/usr/local/lib:$LD_LIBRARY_PATH;
-    PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:/usr/lib/python3/dist-packages;
-   ROS_PACKAGE_PATH=./src:/opt/ros/noetic/share;
-   PATH=/opt/ros/noetic/bin:~/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:$PATH;
+   ROS_VERSION=1;
+   PKG_CONFIG_PATH=/opt/ros/noetic/lib/pkgconfig;
+   ROS_PYTHON_VERSION=3;ROS_PACKAGE_PATH=/opt/ros/noetic/share;
+   ROSLISP_PACKAGE_DIRECTORIES=;
+   ROS_ETC_DIR=/opt/ros/noetic/etc/ros;
+   CMAKE_PREFIX_PATH=/opt/ros/noetic;
+   PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages;
+   ROS_MASTER_URI=http://localhost:11311;
+   LD_LIBRARY_PATH=/opt/ros/noetic/lib;
+   PATH=/opt/ros/noetic/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin;
+   ROS_ROOT=/opt/ros/noetic/share/ros;
+   ROS_DISTRO=noetic;
    ```
    ![](README/2.png)
    

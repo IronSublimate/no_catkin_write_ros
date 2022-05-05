@@ -1,7 +1,7 @@
 #!/bin/bash
 ## get environment variable for ros
 
-envir=$(env -i bash -c 'source devel/setup.sh;source /opt/ros/noetic/setup.sh; env')
+envir=$(env -i bash -c 'source /opt/ros/noetic/setup.sh; env')
 
 new_env=""
 
