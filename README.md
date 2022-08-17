@@ -99,3 +99,11 @@ target_link_libraries(listener ${catkin_LIBRARIES})
    ![](README/2.png)
    
 5. 开roscore，运行
+
+## 已知环境变量的影响
+
+1. ROS_PACKAGE_PATH 
+   + 会影响运行时查找plugin，如果没有指定则会报pluginlib::ClassLoaderException
+2. CMAKE_PREFIX_PATH 
+   + 会影响编译时查找catkin
+   + 会影响运行时查找plugin，如果没有指定则会报'pluginlib::LibraryLoadException'
