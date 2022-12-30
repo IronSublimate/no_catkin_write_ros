@@ -52,8 +52,19 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 
 ## clion设置
 1. 工作空间打开clion，选择src下面的CMakeLists.txt，也就是链接到ros安装目录的CMakeLists.txt
+2. `File -> Settings -> Build, Execution, Deployment -> Toolchains`  
+   点击 `Add enviroment`，选择ROS的`setup.sh`所在的路径
+   ![](./README/3.jpg)  
+
+3. `File -> Settings -> Build, Execution, Deployment -> CMake`  
+   `Toolchains`选择刚才设置的Linux ROS1
+   
+4. 编译运行
+
+## ~~clion设置（已经过时）~~
+1. 工作空间打开clion，选择src下面的CMakeLists.txt，也就是链接到ros安装目录的CMakeLists.txt
     
-2. File -> Settings -> Build, Execution, Deployment -> CMake，
+2. `File -> Settings -> Build, Execution, Deployment -> CMake`，
     
     添加cmake option，这里ROS neotic是python3，其他的ros可能是python2，其中CMAKE_INSTALL_PREFIX和CATKIN_DEVEL_PREFIX是相对于Build directory的
     
